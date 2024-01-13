@@ -10,7 +10,7 @@ WORKDIR /var/www/html
 COPY --from=composer:2.6.6 /usr/bin/composer /usr/bin/composer
 
 # установка/обновление пакетов
-RUN apt-get update
+RUN apt-get update && apt-get install -y git
 
 # установка и настройка Xdebug
 RUN pecl install xdebug-3.3.1 && docker-php-ext-enable xdebug
