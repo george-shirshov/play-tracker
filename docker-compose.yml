@@ -1,9 +1,16 @@
 version: "3"
 
 services:
-  apache:
-    build: docker/apache
-    volumes:
-      - ./:/var/www/html
-    ports:
-      - "8000:80"
+    apache:
+        build: docker/apache
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - "8000:80"
+    db:
+        image: mariadb
+        restart: always
+        ports:
+            - "3306:3306"
+        environment:
+            MARIADB_ROOT_PASSWORD: ${DB_PASSWORD}
