@@ -15,3 +15,6 @@ RUN apt-get update
 # установка и настройка Xdebug
 RUN pecl install xdebug-3.3.1 && docker-php-ext-enable xdebug
 COPY xdebug.ini "${PHP_INI_DIR}/conf.d"
+
+# Установка расширений
+RUN docker-php-ext-install pdo_mysql
