@@ -2,14 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Member;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class MemberSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->call([
-            MemberSeeder::class,
-        ]);
+        Member::factory(20)->make();
     }
 }
