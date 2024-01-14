@@ -10,8 +10,8 @@ class MemberSeeder extends Seeder
 {
     public function run(): void
     {
-        Member::factory(2)
-            ->has(Result::factory(3))
+        Member::factory(250)
+            ->has(Result::factory(25))
             ->create();
     }
 }
