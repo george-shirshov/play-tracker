@@ -9,6 +9,8 @@ class Result extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function setMemberId(?int $value): void
     {
         $this->member_id = $value;

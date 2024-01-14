@@ -9,6 +9,8 @@ class Member extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function getId(): int
     {
         return $this->id;
