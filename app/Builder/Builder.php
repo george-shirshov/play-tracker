@@ -20,4 +20,13 @@ readonly class Builder
 
         return $this->jsonMapper->map($data, $className);
     }
+
+    public function buildArray(array $data, string $className): array
+    {
+        if (!class_exists($className)) {
+            throw new InvalidArgumentException("Класс '$className' не определён");
+        }
+
+        return $this->jsonMapper->mapArray($data, array(), $className);
+    }
 }
