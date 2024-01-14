@@ -11,6 +11,8 @@ class Member extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['email'];
+
     public function getId(): int
     {
         return $this->id;

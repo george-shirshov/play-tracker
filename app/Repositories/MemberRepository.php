@@ -9,6 +9,8 @@ class MemberRepository
     public function getByEmail(string $email): Member
     {
         /** @var Member */
-        return Member::query()->where('email', $email)->firstOrCreate();
+        return Member::query()->where('email', $email)->firstOrCreate([
+            'email' => $email
+        ]);
     }
 }
