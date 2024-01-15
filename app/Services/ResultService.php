@@ -2,8 +2,9 @@
 
 namespace App\Services;
 
-use App\Data\Result\ResultRequest;
+
 use App\Data\Result\ResultViewModel;
+use App\Http\Requests\Result\ResultRequest;
 use App\Repositories\MemberRepository;
 use App\Repositories\ResultRepository;
 

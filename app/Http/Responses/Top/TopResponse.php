@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Data\Top;
+namespace App\Http\Responses\Top;
+
+use App\Data\Top\ResponseData;
 
 class TopResponse
 {
