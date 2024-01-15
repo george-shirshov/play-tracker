@@ -1,0 +1,124 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "PlayTracker",
+        "description": "Сервис для сохранения результатов прохождения игры",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/": {},
+        "/save-result": {
+            "post": {
+                "summary": "Сохранение результата для участника",
+                "operationId": "40d19b2784184e15c37210300b8d9d36",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResultRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Успешно сохранён результат"
+                    }
+                }
+            }
+        },
+        "/top": {
+            "post": {
+                "summary": "Вывод топ 10 результатов",
+                "operationId": "d3ac26f494f40f984d9aca9c9c19b34f",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TopRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Успешно получен топ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "TopData": {
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "place": {
+                        "type": "integer"
+                    },
+                    "milliseconds": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "ResponseData": {
+                "properties": {
+                    "top": {
+                        "type": "array",
+                        "items": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/components/schemas/TopData"
+                                }
+                            ]
+                        }
+                    },
+                    "self": {
+                        "$ref": "#/components/schemas/TopData"
+                    }
+                },
+                "type": "object"
+            },
+            "TopResponse": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/ResponseData"
+                    }
+                },
+                "type": "object"
+            },
+            "ResultRequest": {
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "milliseconds": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "TopRequest": {
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
