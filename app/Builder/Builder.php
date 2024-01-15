@@ -4,6 +4,8 @@ namespace App\Builder;
 
 use InvalidArgumentException;
 use JsonMapper;
+use JsonMapper_Exception;
+use stdClass;
 
 readonly class Builder
 {
@@ -12,6 +14,9 @@ readonly class Builder
     ) {
     }
 
+    /**
+     * @throws JsonMapper_Exception
+     */
     public function build(object $data, string $className): object
     {
         if (!class_exists($className)) {
@@ -21,6 +26,11 @@ readonly class Builder
         return $this->jsonMapper->map($data, $className);
     }
 
+    /**
+     * @param array<stdClass> $data
+     * @return array<object>
+     * @throws JsonMapper_Exception
+     */
     public function buildArray(array $data, string $className): array
     {
         if (!class_exists($className)) {

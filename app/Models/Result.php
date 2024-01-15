@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int|null $member_id
+ * @property int $milliseconds
+ */
 class Result extends Model
 {
     use HasFactory;
