@@ -27,7 +27,7 @@ class ResultRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'nullable|string',
+            'email' => 'nullable|email',
             'milliseconds' => 'required|integer',
         ];
     }
