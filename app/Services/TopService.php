@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Data\Top\TopRequest;
-use App\Data\Top\TopResponse;
+use App\Http\Requests\Top\TopRequest;
+use App\Http\Responses\Top\TopResponse;
 use App\Repositories\ResultRepository;
 
 readonly class TopService
